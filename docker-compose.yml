@@ -10,27 +10,36 @@ services:
         ports:
             - 8080:8080
             - 8081:8081
-        networks:
-            - whisper.user.net
-        
+        depends_on:
+            - whisper.userdb
 
     whisper.userdb:
         image: postgres:17
         container_name: whisper.userdb
         ports:
-            - 5433:5432
+            - ${WHISPER_USERDB_PORTS}
         environment:
-            POSTGRES_DB: whisper.userdb
-            POSTGRES_USER: user
-            POSTGRES_PASSWORD: password
+            POSTGRES_DB: ${WHISPER_USERDB_DATABASE}
+            POSTGRES_USER: ${WHISPER_USERDB_USERNAME}
+            POSTGRES_PASSWORD: ${WHISPER_USERDB_PASSWORD}
         volumes:
             - whisper.userdb_data:/var/lib/postgresql/data
-        networks:
-            - whisper.user.net
+    
+    whisper.pgadmin:
+        image: dpage/pgadmin4:9.0.0
+        container_name: whisper.pgadmin
+        environment:
+            PGADMIN_DEFAULT_EMAIL: ${WHISPER_PGADMIN_EMAIL}
+            PGADMIN_DEFAULT_PASSWORD: ${WHISPER_PGADMIN_PASSWORD}
+        ports:
+            - ${WHISPER_PGADMIN_PORTS}
+        volumes:
+            - whisper.pgadmin_data:/var/lib/pgadmin/data
+        depends_on:
+            - whisper.userdb
 
-networks:
-    whisper.auth.net:
-        driver: brigde
+
 
 volumes:
     whisper.userdb_data:
+    whisper.pgadmin_data:
