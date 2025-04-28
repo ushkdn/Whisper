@@ -1,7 +1,7 @@
 using DotNetEnv;
 using Microsoft.Extensions.Configuration;
 
-namespace Whisper.Shared.Extensions;
+namespace Whisper.Shared.Configurations.Extensions;
 
 public static class IConfigurationBuilderExtensions
 {

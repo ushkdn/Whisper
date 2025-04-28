@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Whisper.User.Domain.Interfaces.Repositories;
+using Whisper.User.Infrastructure.Persistence.Repositories;
 
 namespace Whisper.User.Infrastructure.Persistence.Extensions;
 
@@ -15,7 +17,9 @@ public static class ServiceCollectionExtensions
             options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
                 .UseNpgsql(dbConnectionString, x => x.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery))
         );
-
+        
+        services.AddScoped<IUserRepository, UserRepository>();
+        
         return services;
     }
 }
