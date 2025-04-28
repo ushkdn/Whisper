@@ -1,5 +1,9 @@
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using Whisper.Shared.Extensions;
+using Whisper.User.Domain.Interfaces.Repositories;
+using Whisper.User.Infrastructure.Persistence.Extensions;
+using Whisper.User.Infrastructure.Persistence.Repositories;
 
 namespace Whisper.User
 {
@@ -9,8 +13,13 @@ namespace Whisper.User
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Configuration.AddDotEnvConfiguration("whisper.user.env");
+
             builder.Services.AddControllers();
             builder.Services.AddOpenApi();
+            builder.Services.AddPersistence(builder.Configuration, "PostgreSQL-UserDb");
+
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             builder.Services.AddSwaggerGen(x =>
             {
