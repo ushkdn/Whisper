@@ -15,7 +15,7 @@ public static class ServiceCollectionExtensions
         });
         services.AddSwagger();
         services.AddPersistence(configuration, "PostgreSQL-UserDb");
-        
+
         return services;
     }
 }

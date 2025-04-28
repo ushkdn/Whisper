@@ -17,9 +17,9 @@ public static class ServiceCollectionExtensions
             options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
                 .UseNpgsql(dbConnectionString, x => x.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery))
         );
-        
+
         services.AddScoped<IUserRepository, UserRepository>();
-        
+
         return services;
     }
 }

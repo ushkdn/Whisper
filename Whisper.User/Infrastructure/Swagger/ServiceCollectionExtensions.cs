@@ -1,5 +1,5 @@
-﻿using System.Reflection;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace Whisper.User.Infrastructure.Swagger;
 
@@ -28,5 +28,4 @@ public static class ServiceCollectionExtensions
         });
         return services;
     }
-
 }
