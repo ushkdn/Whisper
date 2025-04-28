@@ -1,0 +1,36 @@
+services:
+    whisper.user:
+        image: ${DOCKER_REGISTRY-}
+        container_name: whisper.user
+        build:
+            context: .
+            dockerfile: Whisper.User/Dockerfile
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+        ports:
+            - 8080:8080
+            - 8081:8081
+        networks:
+            - whisper.user.net
+        
+
+    whisper.userdb:
+        image: postgres:17
+        container_name: whisper.userdb
+        ports:
+            - 5433:5432
+        environment:
+            POSTGRES_DB: whisper.userdb
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: password
+        volumes:
+            - whisper.userdb_data:/var/lib/postgresql/data
+        networks:
+            - whisper.user.net
+
+networks:
+    whisper.auth.net:
+        driver: brigde
+
+volumes:
+    whisper.userdb_data:
