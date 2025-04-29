@@ -11,13 +11,13 @@ public class EntityBaseConfiguration<TEntity> : EntityConfiguration<TEntity> whe
         base.Configure(builder);
 
         builder
-            .Property(x => x.DateCreated)
-            .IsRequired()
-            .HasColumnName("date_created");
+                .Property(x => x.DateCreated)
+                .IsRequired()
+                .HasColumnName("date_created");
 
         builder
-            .Property(x => x.DateUpdated)
-            .IsRequired()
-            .HasColumnName("date_updated");
+                .Property(x => x.DateUpdated)
+                .IsRequired()
+                .HasColumnName("date_updated");
     }
 }

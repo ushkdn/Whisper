@@ -8,7 +8,9 @@ public sealed class UserRepository(WhisperUserDbContext context) : IUserReposito
 {
     public async Task<UserEntity> GetUserByIdAsync(Guid userId)
     {
-        return await context.Users.Where(x => x.Id == userId).FirstOrDefaultAsync()
+        return await context.Users
+                                    .Where(x => x.Id == userId)
+                                    .FirstOrDefaultAsync() 
                ?? throw new KeyNotFoundException($"User with specified id: {userId} not found");
     }
 }

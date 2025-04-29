@@ -5,7 +5,11 @@ namespace Whisper.Shared.Configurations.Extensions;
 
 public static class IConfigurationBuilderExtensions
 {
-    public static IConfigurationBuilder AddDotEnvConfiguration(this IConfigurationBuilder configurationBuilder, string envFileName)
+    public static IConfigurationBuilder AddDotEnvConfiguration
+    (
+        this IConfigurationBuilder configurationBuilder, 
+        string envFileName
+    )            
     {
         var projectPath = Directory.GetCurrentDirectory();
         var envFilePath = Path.Combine(projectPath, envFileName);

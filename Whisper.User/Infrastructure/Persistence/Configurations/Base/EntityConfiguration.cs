@@ -11,9 +11,9 @@ public class EntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> wh
         builder.HasKey(e => e.Id);
 
         builder
-            .Property(x => x.Id)
-            .IsRequired()
-            .HasColumnName("id")
-            .ValueGeneratedOnAdd();
+                .Property(x => x.Id)
+                .IsRequired()
+                .HasColumnName("id")
+                .ValueGeneratedOnAdd();
     }
 }

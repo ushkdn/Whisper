@@ -1,4 +1,4 @@
-﻿namespace Whisper.Shared.Domain.Entities.Base;
+﻿namespace Whisper.Shared.Domain.Entities.Base.Interfaces;
 
 public interface IEntity
 {
