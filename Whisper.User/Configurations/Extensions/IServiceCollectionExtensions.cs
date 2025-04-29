@@ -1,11 +1,19 @@
-﻿using Microsoft.OpenApi.Models;
-using System.Reflection;
+﻿using System.Reflection;
+using Microsoft.OpenApi.Models;
+using Whisper.Shared.Configurations.Extensions;
 
-namespace Whisper.User.Infrastructure.Swagger;
+namespace Whisper.User.Configurations.Extensions;
 
-public static class ServiceCollectionExtensions
+public static class IServiceCollectionExtensions
 {
-    public static IServiceCollection AddSwagger(this IServiceCollection services)
+    public static IServiceCollection AddConfigurations(this IServiceCollection services)
+    {
+        services.AddSwagger().AddMediator();
+        
+        return services;
+    }
+    
+    private static IServiceCollection AddSwagger(this IServiceCollection services)
     {
         services.AddSwaggerGen(x =>
         {
@@ -28,4 +36,12 @@ public static class ServiceCollectionExtensions
         });
         return services;
     }
+    
+    private static IServiceCollection AddMediator(this IServiceCollection services)
+    {
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+        
+        return services;
+    }
+    
 }

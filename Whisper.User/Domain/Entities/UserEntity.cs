@@ -14,7 +14,7 @@ public class UserEntity : EntityBase
     
     public required string Password { get; set; }
     
-    public required DateTime BirthDay { get; set; }
+    public required DateOnly BirthDay { get; set; }
     
     public required bool IsVerified { get; set; } = false;
 }

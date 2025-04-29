@@ -12,7 +12,7 @@ using Whisper.User.Infrastructure.Persistence;
 namespace Whisper.User.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(WhisperUserDbContext))]
-    [Migration("20250428201154_Initial")]
+    [Migration("20250429220047_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -32,8 +32,8 @@ namespace Whisper.User.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("BirthDay")
-                        .HasColumnType("timestamp with time zone")
+                    b.Property<DateOnly>("BirthDay")
+                        .HasColumnType("date")
                         .HasColumnName("birthday");
 
                     b.Property<DateTime>("DateCreated")

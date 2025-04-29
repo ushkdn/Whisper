@@ -29,8 +29,8 @@ namespace Whisper.User.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("BirthDay")
-                        .HasColumnType("timestamp with time zone")
+                    b.Property<DateOnly>("BirthDay")
+                        .HasColumnType("date")
                         .HasColumnName("birthday");
 
                     b.Property<DateTime>("DateCreated")

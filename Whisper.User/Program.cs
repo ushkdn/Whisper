@@ -1,4 +1,6 @@
-using Whisper.User.Infrastructure.DependencyInjection;
+using Whisper.User.Configurations.Extensions;
+using Whisper.User.Features.Extensions;
+using Whisper.User.Infrastructure.Extensions;
 
 namespace Whisper.User;
 
@@ -10,7 +12,11 @@ public class Program
 
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
-        builder.Services.AddApplicationServices(builder.Host, builder.Configuration);
+
+        builder.Host.AddEnvSupport();
+        builder.Services.AddConfigurations();
+        builder.Services.AddInfrastructure(builder.Configuration);
+        builder.Services.AddFeatures();
 
         var app = builder.Build();
 

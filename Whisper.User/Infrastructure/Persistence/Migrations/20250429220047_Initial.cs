@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -20,7 +21,7 @@ namespace Whisper.User.Infrastructure.Persistence.Migrations
                     username = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: false),
                     email = table.Column<string>(type: "text", nullable: false),
                     password = table.Column<string>(type: "character varying(120)", maxLength: 120, nullable: false),
-                    birthday = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    birthday = table.Column<DateOnly>(type: "date", nullable: false),
                     is_verified = table.Column<bool>(type: "boolean", nullable: false),
                     date_created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     date_updated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
