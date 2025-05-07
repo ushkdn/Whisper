@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Whisper.Shared.Domain.Transactions.Interfaces;
-using Whisper.User.Domain.Interfaces.Repositories;
+using Whisper.Shared.Infrastructure.Persistence.Transactions;
+using Whisper.User.Features.User;
 using Whisper.User.Infrastructure.Persistence.Repositories;
-using Whisper.User.Infrastructure.Persistence.Transactions;
 
 namespace Whisper.User.Infrastructure.Persistence.Extensions;
 
@@ -33,7 +33,7 @@ public static class ServiceCollectionExtensions
         );
 
         services.AddScoped<IUserRepository, UserRepository>();
-        services.AddScoped<ITransactionManager, TransactionManager>();
+        services.AddScoped<ITransactionManager, TransactionManager<WhisperUserDbContext>>();
         
         return services;
     }

@@ -1,6 +1,5 @@
-﻿using System.Runtime.InteropServices.JavaScript;
-using MediatR;
-using Whisper.User.Features.Base;
+﻿using MediatR;
+using Whisper.Shared.Features.Base;
 
 namespace Whisper.User.Features.User.Register;
 

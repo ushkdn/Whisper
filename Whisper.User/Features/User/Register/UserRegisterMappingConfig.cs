@@ -8,5 +8,6 @@ public static class UserRegisterMappingConfig
     public static void Configure()
     {
         TypeAdapterConfig<UserRegisterRequest, UserEntity>.NewConfig();
+        TypeAdapterConfig<UserEntity, UserRegisterResponse>.NewConfig();
     }
 }

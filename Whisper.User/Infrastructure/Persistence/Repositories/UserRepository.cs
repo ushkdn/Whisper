@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Whisper.User.Domain.Entities;
-using Whisper.User.Domain.Interfaces.Repositories;
+using Whisper.User.Features.User;
 
 namespace Whisper.User.Infrastructure.Persistence.Repositories;
 

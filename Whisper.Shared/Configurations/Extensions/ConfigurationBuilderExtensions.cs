@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Whisper.Shared.Configurations.Extensions;
 
-public static class IConfigurationBuilderExtensions
+public static class ConfigurationBuilderExtensions
 {
     public static IConfigurationBuilder AddDotEnvConfiguration
     (

@@ -2,15 +2,15 @@
 
 namespace Whisper.User.Configurations.Extensions;
 
-public static class IHostBuilderExtensions
+public static class HostBuilderExtensions
 {
-    public static IHostBuilder AddEnvSupport(this IHostBuilder hostBuilder)
+    public static IHostBuilder AddEnvSupport(this IHostBuilder hostBuilder, string envFileName)
     {
         hostBuilder.ConfigureAppConfiguration
         (
             (hostingContext, config) =>
             {
-                config.AddDotEnvConfiguration("whisper.user.env");
+                config.AddDotEnvConfiguration(envFileName);
             }
         );
         

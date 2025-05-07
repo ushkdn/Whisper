@@ -23,6 +23,9 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageReference Include="Mapster" Version="7.4.0" />
     <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
+    <PackageReference Include="MassTransit" Version="8.4.0" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.4.0" />
     <PackageReference Include="MediatR" Version="12.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
@@ -45,7 +48,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Interfaces\Repositories\" />
     <Folder Include="Features\User\ResetPassword\" />
+    <Folder Include="Infrastructure\Persistence\Transactions\" />
   </ItemGroup>
 
 </Project>

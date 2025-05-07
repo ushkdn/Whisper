@@ -4,7 +4,7 @@ using Whisper.User.Features.User.Register;
 
 namespace Whisper.User.Features.Extensions;
 
-public static class IServiceCollectionExtensions
+public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddFeatures(this IServiceCollection services)
     {

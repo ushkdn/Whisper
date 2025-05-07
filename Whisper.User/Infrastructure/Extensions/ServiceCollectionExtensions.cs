@@ -7,9 +7,10 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddInfrastructure(
         this IServiceCollection services, 
-        IConfiguration configuration)
+        IConfiguration configuration,
+        string dbConnectionStringKey)
     {
-        services.AddPersistence(configuration, "PostgreSQL-UserDb");
+        services.AddPersistence(configuration, dbConnectionStringKey);
 
         return services;
     }

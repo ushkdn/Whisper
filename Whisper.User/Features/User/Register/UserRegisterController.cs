@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Whisper.User.Features.Base;
+using Whisper.Shared.Features.Base;
 
 namespace Whisper.User.Features.User.Register;
 
 [ApiController]
 [Route("api/users")]
-public partial class UserRegisterController(IMediator mediator) : ControllerBase
+public partial class UserController(IMediator mediator) : ControllerBase
 {
     [HttpPost("register")]
     public async Task<ActionResult<HandlerResponse<UserRegisterResponse>>> Register(

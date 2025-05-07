@@ -1,8 +1,9 @@
-﻿using Whisper.Shared.Domain.Transactions.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using Whisper.Shared.Domain.Transactions.Interfaces;
 
-namespace Whisper.User.Infrastructure.Persistence.Transactions;
+namespace Whisper.Shared.Infrastructure.Persistence.Transactions;
 
-public sealed class TransactionManager(WhisperUserDbContext context) : ITransactionManager, IDisposable, IAsyncDisposable
+public sealed class TransactionManager<T>(T context) : ITransactionManager, IDisposable, IAsyncDisposable where T : DbContext
 {
     public int SaveChanges()
     {

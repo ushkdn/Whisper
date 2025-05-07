@@ -1,6 +1,6 @@
 ﻿using Whisper.User.Domain.Entities;
 
-namespace Whisper.User.Domain.Interfaces.Repositories;
+namespace Whisper.User.Features.User;
 
 public interface IUserRepository
 {

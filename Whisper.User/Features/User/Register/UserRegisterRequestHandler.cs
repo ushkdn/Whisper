@@ -3,9 +3,8 @@ using FluentValidation;
 using MapsterMapper;
 using MediatR;
 using Whisper.Shared.Domain.Transactions.Interfaces;
+using Whisper.Shared.Features.Base;
 using Whisper.User.Domain.Entities;
-using Whisper.User.Domain.Interfaces.Repositories;
-using Whisper.User.Features.Base;
 
 namespace Whisper.User.Features.User.Register;
 
@@ -30,7 +29,7 @@ public class UserRegisterRequestHandler(
             };
         }
         cancellationToken.ThrowIfCancellationRequested();
-        var storedUser = await userRepository.GetUserByEmailAsync(request.Email, cancellationToken );
+        var storedUser = await userRepository.GetUserByEmailAsync(request.Email!, cancellationToken );
         
         if (storedUser is not null)
         {
@@ -49,6 +48,8 @@ public class UserRegisterRequestHandler(
             mapper.Map<UserEntity>(request), cancellationToken).Result);
 
         await transactionManager.SaveChangesAsync();
+        
+        //broker event sending here to authservice for token creation.
 
         return new HandlerResponse<UserRegisterResponse>
         {

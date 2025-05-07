@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Whisper.Tests", "Whisper.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Whisper.Shared", "Whisper.Shared\Whisper.Shared.csproj", "{AAA1455B-5CC9-49A4-A30F-5857AE4BD14C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Whisper.Auth", "Whisper.Auth\Whisper.Auth.csproj", "{AF940B7A-3872-47CE-9BCF-8AFE0F8FEFBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{AAA1455B-5CC9-49A4-A30F-5857AE4BD14C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAA1455B-5CC9-49A4-A30F-5857AE4BD14C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAA1455B-5CC9-49A4-A30F-5857AE4BD14C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF940B7A-3872-47CE-9BCF-8AFE0F8FEFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF940B7A-3872-47CE-9BCF-8AFE0F8FEFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF940B7A-3872-47CE-9BCF-8AFE0F8FEFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF940B7A-3872-47CE-9BCF-8AFE0F8FEFBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

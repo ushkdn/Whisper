@@ -1,27 +1,25 @@
 ﻿using System.Reflection;
 using Microsoft.OpenApi.Models;
-using Whisper.Shared.Configurations.Extensions;
 
-namespace Whisper.User.Configurations.Extensions;
+namespace Whisper.Auth.Configurations.Extensions;
 
-public static class IServiceCollectionExtensions
+public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddConfigurations(this IServiceCollection services)
     {
-        services.AddSwagger().AddMediator();
-        
+        services.AddSwagger();
         return services;
     }
-    
+
     private static IServiceCollection AddSwagger(this IServiceCollection services)
     {
         services.AddSwaggerGen(x =>
         {
             x.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Whisper User API",
+                Title = "Whisper Auth API",
                 Version = "v1",
-                Description = "Whisper User API which provides base user operations",
+                Description = "Whisper Auth API which provides base auth operations",
                 Contact = new OpenApiContact
                 {
                     Name = "",
@@ -36,12 +34,4 @@ public static class IServiceCollectionExtensions
         });
         return services;
     }
-    
-    private static IServiceCollection AddMediator(this IServiceCollection services)
-    {
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
-        
-        return services;
-    }
-    
 }

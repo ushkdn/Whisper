@@ -13,9 +13,9 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
 
-        builder.Host.AddEnvSupport();
+        builder.Host.AddEnvSupport("whisper.auth.env");
         builder.Services.AddConfigurations();
-        builder.Services.AddInfrastructure(builder.Configuration);
+        builder.Services.AddInfrastructure(builder.Configuration, "PostgreSQL-UserDb");
         builder.Services.AddFeatures();
 
         var app = builder.Build();

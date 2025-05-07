@@ -13,6 +13,21 @@ services:
         depends_on:
             - whisper.userdb
 
+    whisper.auth:
+        image: ${DOCKER_REGISTRY-}
+        container_name: whisper.auth
+        build:
+            context: .
+            dockerfile: Whisper.Auth/Dockerfile
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+        ports:
+            - 8083:8083
+            - 8084:8084
+        depends_on:
+            - whisper.authdb
+        
+        
     whisper.userdb:
         image: postgres:17
         container_name: whisper.userdb
@@ -24,6 +39,18 @@ services:
             POSTGRES_PASSWORD: ${WHISPER_USERDB_PASSWORD}
         volumes:
             - whisper.userdb_data:/var/lib/postgresql/data
+    
+    whisper.authdb:
+        image: postgres:17
+        container_name: whisper.authdb
+        ports:
+            - ${WHISPER_AUTHDB_PORTS}
+        environment:
+            POSTGRES_DB: ${WHISPER_AUTHDB_DATABASE}
+            POSTGRES_USER: ${WHISPER_AUTHDB_USERNAME}
+            POSTGRES_PASSWORD: ${WHISPER_AUTHDB_PASSWORD}
+        volumes:
+            - whisper.authdb_data:/var/lib/postgresql/data
     
     whisper.pgadmin:
         image: dpage/pgadmin4:9.0.0
@@ -37,9 +64,27 @@ services:
             - whisper.pgadmin_data:/var/lib/pgadmin/data
         depends_on:
             - whisper.userdb
-
+    
+    whisper.rabbitmq:
+        image: rabbitmq:4.1.0-management
+        container_name: whisper.rabbitmq
+        hostname: whisper.rabbitmq
+        restart: always
+        environment:
+            RABBITMQ_DEFAULT_USER: ${WHISPER_RABBITMQ_USER}
+            RABBITMQ_DEFAULT_PASSWORD: ${WHISPER_RABBITMQ_PASSWORD}
+        ports:
+            - ${WHISPER_RABBITMQ_MANAGEMENT_PORTS}
+            - ${WHISPER_RABBITMQ_AMQP_PORTS}
+        volumes:
+            - whisper.rabbitmq_data:/var/lib/rabbitmq/data
+        depends_on:
+            - whisper.user
+            - whisper.userdb
 
 
 volumes:
     whisper.userdb_data:
+    whisper.authdb_data:
     whisper.pgadmin_data:
+    whisper.rabbitmq_data:  
