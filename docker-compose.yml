@@ -82,9 +82,20 @@ services:
             - whisper.user
             - whisper.userdb
 
+    whisper.redis:
+        image: redis:8.0.0-alpine
+        container_name: whisper.redis
+        ports: 
+            - ${WHISPER_REDIS_PORTS}
+        volumes:
+            - whisper.redis_data:/var/lib/redis/data
+        depends_on:
+            - whisper.authdb
+
 
 volumes:
     whisper.userdb_data:
     whisper.authdb_data:
     whisper.pgadmin_data:
     whisper.rabbitmq_data:  
+    whisper.redis_data:
