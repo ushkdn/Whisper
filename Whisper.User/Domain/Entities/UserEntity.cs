@@ -4,17 +4,17 @@ namespace Whisper.User.Domain.Entities;
 
 public class UserEntity : EntityBase
 {
-    public required string Surname { get; set; }
-    
-    public required string Name { get; set; }
-    
-    public required string Username { get; set; }
-    
-    public required string Email { get; set; }
-    
-    public required string Password { get; set; }
-    
-    public required DateOnly BirthDay { get; set; }
-    
-    public required bool IsVerified { get; set; } = false;
+    public string Surname { get; set; }
+
+    public string Name { get; set; }
+
+    public string Username { get; set; }
+
+    public string Email { get; set; }
+
+    public string Password { get; set; }
+
+    public DateOnly BirthDay { get; set; }
+
+    public bool IsVerified { get; set; } = false;
 }

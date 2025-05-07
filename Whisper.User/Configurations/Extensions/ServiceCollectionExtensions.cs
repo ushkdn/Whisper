@@ -9,10 +9,10 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddConfigurations(this IServiceCollection services)
     {
         services.AddSwagger().AddMediator();
-        
+
         return services;
     }
-    
+
     private static IServiceCollection AddSwagger(this IServiceCollection services)
     {
         services.AddSwaggerGen(x =>
@@ -36,12 +36,11 @@ public static class ServiceCollectionExtensions
         });
         return services;
     }
-    
+
     private static IServiceCollection AddMediator(this IServiceCollection services)
     {
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
-        
+
         return services;
     }
-    
 }

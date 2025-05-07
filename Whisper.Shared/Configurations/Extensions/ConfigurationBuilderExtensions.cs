@@ -7,9 +7,9 @@ public static class ConfigurationBuilderExtensions
 {
     public static IConfigurationBuilder AddDotEnvConfiguration
     (
-        this IConfigurationBuilder configurationBuilder, 
+        this IConfigurationBuilder configurationBuilder,
         string envFileName
-    )            
+    )
     {
         var projectPath = Directory.GetCurrentDirectory();
         var envFilePath = Path.Combine(projectPath, envFileName);

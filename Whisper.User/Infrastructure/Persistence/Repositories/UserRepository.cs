@@ -16,7 +16,7 @@ public sealed class UserRepository(WhisperUserDbContext context) : IUserReposito
     public async Task<Lazy<UserEntity>> CreateAsync(UserEntity user, CancellationToken cancellationToken)
     {
         var storedUser = await context.Users.AddAsync(user, cancellationToken);
-        
+
         return new Lazy<UserEntity>(() => storedUser.Entity);
     }
 

@@ -13,7 +13,7 @@ public class UserRegisterRequestValidator : AbstractValidator<UserRegisterReques
             .Length(2, 20)
             .WithMessage("Surname cannot be less than 2 and more than 20 characters")
             .WithErrorCode("400");
-        
+
         RuleFor(x => x.Name)
             .NotEmpty()
             .WithMessage("Name cannot be empty")
@@ -37,7 +37,7 @@ public class UserRegisterRequestValidator : AbstractValidator<UserRegisterReques
             .EmailAddress(FluentValidation.Validators.EmailValidationMode.AspNetCoreCompatible)
             .WithMessage("Email format is invalid")
             .WithErrorCode("400");
-        
+
         RuleFor(x => x.Password)
             .NotEmpty()
             .WithMessage("Password cannot be empty")

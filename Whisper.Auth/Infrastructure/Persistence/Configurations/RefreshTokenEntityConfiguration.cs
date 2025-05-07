@@ -17,18 +17,17 @@ public class RefreshTokenEntityConfiguration : EntityBaseConfiguration<RefreshTo
             .IsRequired()
             .HasMaxLength(255)
             .HasColumnName("refresh_token");
-        
+
         builder
             .Property(p => p.ExpireDate)
             .IsRequired()
             .HasColumnName("expire_date");
-        
+
         builder
             .Property(p => p.UserId)
             .IsRequired()
             .HasColumnName("user_id");
 
         builder.ToTable(Tables.REFRESH_TOKENS);
-
     }
 }

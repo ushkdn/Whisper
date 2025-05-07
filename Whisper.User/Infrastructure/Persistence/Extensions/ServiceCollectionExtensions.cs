@@ -10,7 +10,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddPersistence
     (
-        this IServiceCollection services, 
+        this IServiceCollection services,
         IConfiguration configuration,
         string dbConnectionStringKey
     )
@@ -19,7 +19,7 @@ public static class ServiceCollectionExtensions
                                      .GetSection("Databases")
                                      .GetSection("ConnectionStrings")
                                      .GetSection(dbConnectionStringKey)
-                                     .Value 
+                                     .Value
                                  ?? throw new InvalidOperationException($"{dbConnectionStringKey} configuration not found");
 
         services.AddDbContext<WhisperUserDbContext>(options =>
@@ -27,14 +27,14 @@ public static class ServiceCollectionExtensions
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
                 .UseNpgsql
                 (
-                    dbConnectionString, 
+                    dbConnectionString,
                     x => x.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)
-                )    
+                )
         );
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<ITransactionManager, TransactionManager<WhisperUserDbContext>>();
-        
+
         return services;
     }
 }

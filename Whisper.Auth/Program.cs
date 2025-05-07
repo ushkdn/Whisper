@@ -9,9 +9,8 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-
         builder.Host.AddEnvSupport("whisper.auth.env");
-        
+
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
 
@@ -28,7 +27,6 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
 
         app.MapControllers();
 

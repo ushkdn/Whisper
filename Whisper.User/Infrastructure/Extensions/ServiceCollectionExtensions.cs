@@ -1,12 +1,11 @@
-﻿using Whisper.Shared.Configurations.Extensions;
-using Whisper.User.Infrastructure.Persistence.Extensions;
+﻿using Whisper.User.Infrastructure.Persistence.Extensions;
 
 namespace Whisper.User.Infrastructure.Extensions;
 
 public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddInfrastructure(
-        this IServiceCollection services, 
+        this IServiceCollection services,
         IConfiguration configuration,
         string dbConnectionStringKey)
     {

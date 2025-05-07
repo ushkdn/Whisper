@@ -13,7 +13,7 @@ public static class HostBuilderExtensions
                 config.AddDotEnvConfiguration(envFileName);
             }
         );
-        
+
         return hostBuilder;
     }
 }

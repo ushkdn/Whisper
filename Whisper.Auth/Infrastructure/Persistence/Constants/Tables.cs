@@ -2,5 +2,5 @@
 
 public static class Tables
 {
-    public const string REFRESH_TOKENS = "refresh_tokens"; 
+    public const string REFRESH_TOKENS = "refresh_tokens";
 }

@@ -11,17 +11,17 @@ public partial class UserController(IMediator mediator) : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<HandlerResponse<UserRegisterResponse>>> Register(
         [FromBody] UserRegisterRequest userRegisterRequest,
-        CancellationToken cancellationToken)        
+        CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
-        
+
         var result = await mediator.Send(userRegisterRequest, cancellationToken);
 
         if (!result.Success)
         {
             return BadRequest(result);
         }
-        
+
         return Ok(result);
     }
 }
