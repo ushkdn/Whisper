@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Whisper.Shared.Domain.Entities.Base;
 using Whisper.User.Domain.Entities;
 using Whisper.User.Features.User;
 
@@ -15,6 +16,12 @@ public sealed class UserRepository(WhisperUserDbContext context) : IUserReposito
 
     public async Task<Lazy<UserEntity>> CreateAsync(UserEntity user, CancellationToken cancellationToken)
     {
+        if (user is EntityBase baseEntity)
+        {
+            baseEntity.DateCreated = DateTime.UtcNow;
+            baseEntity.DateUpdated = DateTime.UtcNow;
+        }
+
         var storedUser = await context.Users.AddAsync(user, cancellationToken);
 
         return new Lazy<UserEntity>(() => storedUser.Entity);

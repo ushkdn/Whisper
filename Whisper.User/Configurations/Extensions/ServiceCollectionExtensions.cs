@@ -1,6 +1,5 @@
-﻿using System.Reflection;
-using Microsoft.OpenApi.Models;
-using Whisper.Shared.Configurations.Extensions;
+﻿using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace Whisper.User.Configurations.Extensions;
 
@@ -8,7 +7,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddConfigurations(this IServiceCollection services)
     {
-        services.AddSwagger().AddMediator();
+        services.AddSwagger();
 
         return services;
     }
@@ -34,13 +33,6 @@ public static class ServiceCollectionExtensions
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             x.IncludeXmlComments(xmlPath);
         });
-        return services;
-    }
-
-    private static IServiceCollection AddMediator(this IServiceCollection services)
-    {
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
-
         return services;
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Whisper.Shared.Domain.Transactions.Interfaces;
+using Whisper.Shared.Application.Abstractions.Persistence;
 
 namespace Whisper.Shared.Infrastructure.Persistence.Transactions;
 
@@ -10,9 +10,9 @@ public sealed class TransactionManager<T>(T context) : ITransactionManager, IDis
         return context.SaveChanges();
     }
 
-    public async Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        return await context.SaveChangesAsync();
+        return await context.SaveChangesAsync(cancellationToken);
     }
 
     public void Dispose()

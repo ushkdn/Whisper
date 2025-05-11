@@ -1,5 +1,4 @@
 using Whisper.User.Configurations.Extensions;
-using Whisper.User.Features.Extensions;
 using Whisper.User.Infrastructure.Extensions;
 
 namespace Whisper.User;
@@ -13,10 +12,9 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
 
-        builder.Host.AddEnvSupport("whisper.auth.env");
+        builder.Host.AddEnvSupport("whisper.user.env");
         builder.Services.AddConfigurations();
         builder.Services.AddInfrastructure(builder.Configuration, "PostgreSQL-UserDb");
-        builder.Services.AddFeatures();
 
         var app = builder.Build();
 

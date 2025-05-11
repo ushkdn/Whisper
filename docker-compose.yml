@@ -1,31 +1,31 @@
 services:
-    whisper.user:
-        image: ${DOCKER_REGISTRY-}
-        container_name: whisper.user
-        build:
-            context: .
-            dockerfile: Whisper.User/Dockerfile
-        environment:
-            - ASPNETCORE_ENVIRONMENT=Development
-        ports:
-            - 8080:8080
-            - 8081:8081
-        depends_on:
-            - whisper.userdb
+    # whisper.user:
+    #     image: ${DOCKER_REGISTRY-}
+    #     container_name: whisper.user
+    #     build:
+    #         context: .
+    #         dockerfile: Whisper.User/Dockerfile
+    #     environment:
+    #         - ASPNETCORE_ENVIRONMENT=Development
+    #     ports:
+    #         - 8080:8080
+    #         - 8081:8081
+    #     depends_on:
+    #         - whisper.userdb
 
-    whisper.auth:
-        image: ${DOCKER_REGISTRY-}
-        container_name: whisper.auth
-        build:
-            context: .
-            dockerfile: Whisper.Auth/Dockerfile
-        environment:
-            - ASPNETCORE_ENVIRONMENT=Development
-        ports:
-            - 8083:8083
-            - 8084:8084
-        depends_on:
-            - whisper.authdb
+    # whisper.auth:
+    #     image: ${DOCKER_REGISTRY-}
+    #     container_name: whisper.auth
+    #     build:
+    #         context: .
+    #         dockerfile: Whisper.Auth/Dockerfile
+    #     environment:
+    #         - ASPNETCORE_ENVIRONMENT=Development
+    #     ports:
+    #         - 8083:8083
+    #         - 8084:8084
+    #     depends_on:
+    #         - whisper.authdb
         
         
     whisper.userdb:
@@ -79,7 +79,7 @@ services:
         volumes:
             - whisper.rabbitmq_data:/var/lib/rabbitmq/data
         depends_on:
-            - whisper.user
+            #- whisper.user
             - whisper.userdb
 
     whisper.redis:

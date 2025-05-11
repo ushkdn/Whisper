@@ -12,7 +12,7 @@ using Whisper.User.Infrastructure.Persistence;
 namespace Whisper.User.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(WhisperUserDbContext))]
-    [Migration("20250429220047_Initial")]
+    [Migration("20250511215106_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

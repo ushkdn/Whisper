@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Whisper.Auth.Features.RefreshToken;
+using Whisper.Auth.Features.AuthTokens;
 using Whisper.Auth.Infrastructure.Persistence.Repositories;
-using Whisper.Shared.Domain.Transactions.Interfaces;
+using Whisper.Shared.Application.Abstractions.Persistence;
 using Whisper.Shared.Infrastructure.Persistence.Transactions;
 
 namespace Whisper.Auth.Infrastructure.Persistence.Extensions;

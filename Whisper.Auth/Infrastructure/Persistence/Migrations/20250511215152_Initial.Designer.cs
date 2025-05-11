@@ -12,7 +12,7 @@ using Whisper.Auth.Infrastructure.Persistence;
 namespace Whisper.Auth.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(WhisperAuthDbContext))]
-    [Migration("20250507215513_Initial")]
+    [Migration("20250511215152_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

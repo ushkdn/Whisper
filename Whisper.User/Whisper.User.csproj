@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -48,9 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Interfaces\Repositories\" />
     <Folder Include="Features\User\ResetPassword\" />
-    <Folder Include="Infrastructure\Persistence\Transactions\" />
   </ItemGroup>
 
 </Project>

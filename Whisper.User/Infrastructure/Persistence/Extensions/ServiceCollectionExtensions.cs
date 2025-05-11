@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Whisper.Shared.Domain.Transactions.Interfaces;
+using Whisper.Shared.Application.Abstractions.Persistence;
 using Whisper.Shared.Infrastructure.Persistence.Transactions;
 using Whisper.User.Features.User;
 using Whisper.User.Infrastructure.Persistence.Repositories;
